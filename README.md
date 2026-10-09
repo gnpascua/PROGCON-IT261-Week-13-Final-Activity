@@ -1,10 +1,12 @@
 # PROGCON-IT261-Week-13-Final-Activity-P03
 This repository is for the Final Activity Pair Programming Assignment. 
 
-**Program Logic:**
+**PROGRAM LOGIC**
 The Pet Care Points Calculator helps users track the points they earn from taking care of their pets. First, Flowy greets the user and asks for their name and the number of pet care activities they have finished. For each activity, the user enters an activity code and the number of minutes spent. The program uses the computePetCarePoints() function to calculate the points earned: walking gives 4 points per minute, playing gives 3 points per minute, and grooming gives 2 points per minute. Invalid activity codes earn 0 points. The program repeats this process for every activity, adds the points to the total, and displays the user's name and total points earned.
 
-**Flowchart Outline:**
+--------------------------------
+**FLOWCHART OUTLINE**
+
 **Main Function:**
 1. Start the program and display Flowy's greeting.
 2. Ask for the user's name and number of activities.
