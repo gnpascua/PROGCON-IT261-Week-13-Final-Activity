@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="IT261_PROGCON - WK13 P03 - FINAL ACTIVITY"/>
+        <attribute name="authors" value="gaea nikolaev"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-09 07:20:45 pm"/>
+        <attribute name="created" value="Z2FlYSBuaWtvbGFldjtMQVBUT1AtRk82S01LVUI7MjAyNi0xMC0wOTswNjoxMzozMiBwbTszNzIw"/>
+        <attribute name="edited" value="Z2FlYSBuaWtvbGFldjtMQVBUT1AtRk82S01LVUI7MjAyNi0xMC0wOTswNzoyMDo0NSBwbTszOzM4MzM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Hello, dear user! I am Flowy, your friendly pet caretaker. I am here to help you keep track of the time you spend taking care of your pets and calculate the pet care points you earn! But before that, what's your name?&quot;" newline="True"/>
+            <declare name="Name" type="String" array="False" size=""/>
+            <input variable="Name"/>
+            <output expression="&quot;What a great name, &quot; &amp; Name &amp; &quot;! Now, let's start calculating your pet care points, shall we? Let's see how many points you can earn from walking, playing with, and grooming your pets!&quot;" newline="True"/>
+            <declare name="numActivities" type="Integer" array="False" size=""/>
+            <declare name="index" type="Integer" array="False" size=""/>
+            <declare name="activityCode" type="Integer" array="False" size=""/>
+            <declare name="minutes" type="Integer" array="False" size=""/>
+            <declare name="petCarePoints" type="Integer" array="False" size=""/>
+            <declare name="totalPoints" type="Integer" array="False" size=""/>
+            <output expression="&quot;How many pet care activities did you complete?&quot;" newline="True"/>
+            <input variable="numActivities"/>
+            <assign variable="totalPoints" expression="0"/>
+            <assign variable="index" expression="1"/>
+            <while expression="index &lt;= numActivities">
+                <output expression="&quot;Enter activity code:&quot;" newline="True"/>
+                <input variable="activityCode"/>
+                <output expression="&quot;Enter the duration in minutes:&quot;" newline="True"/>
+                <input variable="minutes"/>
+                <assign variable="petCarePoints" expression="computePetCarePoints(activityCode, minutes)"/>
+                <assign variable="totalPoints" expression="totalPoints + petCarePoints"/>
+                <assign variable="index" expression="index + 1"/>
+            </while>
+            <output expression="&quot;Dear &quot; &amp; Name &amp; &quot;, you earned &quot; &amp; totalPoints &amp; &quot; pet care points!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="computePetCarePoints" type="Integer" variable="petCarePoints">
+        <parameters>
+            <parameter name="activityCode" type="Integer" array="False"/>
+            <parameter name="minutes" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="petCarePoints" type="Integer" array="False" size=""/>
+            <if expression="activityCode == 1">
+                <then>
+                    <assign variable="petCarePoints" expression="4 * minutes"/>
+                    <output expression="&quot;For Activity 1, you earned &quot; &amp; petCarePoints &amp; &quot; points.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="activityCode == 2">
+                        <then>
+                            <assign variable="petCarePoints" expression="3 * minutes"/>
+                            <output expression="&quot;For Activity 2, you earned &quot; &amp; petCarePoints &amp; &quot; points.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="activityCode == 3">
+                                <then>
+                                    <assign variable="petCarePoints" expression="2 * minutes"/>
+                                    <output expression="&quot;For Activity 3, you earned &quot; &amp; petCarePoints &amp; &quot; points.&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <assign variable="petCarePoints" expression="0"/>
+                                    <output expression="&quot;For Activity 3, you earned &quot; &amp; petCarePoints &amp; &quot; points.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
